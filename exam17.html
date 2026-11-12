@@ -27,7 +27,9 @@
                 $("disp2").val(cur+n);
             }
             else {
-                
+                let result = eval(cur);
+                $("disp1").val(cur);
+                $("disp2").val(result);
             }
         });
     });
