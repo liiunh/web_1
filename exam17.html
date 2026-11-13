@@ -14,7 +14,7 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
-    $(document).read(function(){
+    $(document).ready(function(){
         $(".num").click(function(){
             let cur = $("#disp2").val();
             let n = $(this).val();
@@ -24,12 +24,12 @@
             let cur = $("#disp2").val();
             let n = $(this).val();
             if( n != "=") {
-                $("disp2").val(cur+n);
+                $("#disp2").val(cur+n);
             }
             else {
                 let result = eval(cur);
-                $("disp1").val(cur);
-                $("disp2").val(result);
+                $("#disp1").val(cur);
+                $("#disp2").val(result);
             }
         });
     });
