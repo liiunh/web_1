@@ -18,25 +18,46 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function(){
-        let n1 = null;
-        let op = "";
-        let flag = false;
         $(".num").click(function(){
-            if (flag){
-                $("#disp2").val();
-                flag = flase;
-            }
             let cur = $("#disp2").val();
             let n = $(this).val();
-            $("#disp2").val(cur+n);
+            $("#disp2").vla(cur+n);
         });
         $(".op").click(function(){
             let cur = $("#disp2").val();
             let n = $(this).val();
-            if ( n != "="){
-                
+            if (n != "="){
+                $("#disp2").val();
             }
-        }); 
+            else{
+                let parts = cur.match(/\d+|[+\-*/]/g);
+                // 1. 곱셉과 나눗헴의 계산//
+                for (let i=1; i < parts.length; i += 2){
+                    let opr = parts[i];
+                    //연산자가 곱셉이나 나눗셈이면, 양옆의 숫자를 가져오는 코드//
+                    if ( opr === "*" || opr === "/" ){
+                        let left = Number(parts[i-1]);
+                        let right = Number(parts[i+1]);
+                        //0으로 나누려고 하면 안내 메세지 띄우고 계산 중단//
+                        if ( opr === "/" && right ==="0" ){
+                            alert("0으로 나눌 수 없습니다.")
+                            return;
+                        }
+                        //*, / 연산하고 그 값을 result에 저장//
+                        let result;
+                        if (opr === "*"){
+                            result = left * right
+                        }
+                        else {
+                            result = left / right
+                        }
+                        //*, / 연산자를 수행 한 값을 result에 저장했으니 원래 숫자와 연산자는 지우고 result 값을 배치함.//
+                        parts.splice(i-1, 3, result);
+                        i -= 2;
+                    }
+                }
+            }
+        });
     });
 </script>
 <body>
