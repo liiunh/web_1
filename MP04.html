@@ -17,7 +17,17 @@
 </style>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
-    
+    $(document).ready(function(){
+        $(".num").click(function(){
+            let cur = $("#disp2").val();
+            let n = $(this).val();
+            $("#disp2").val(cur+n)
+        });
+        $(".op").click(function(){
+            let cur = $("#disp2").val();
+            let n = $(this).val();
+        }); 
+    });
 </script>
 <body>
     <h1>계산기</h1>
