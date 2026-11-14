@@ -18,14 +18,24 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function(){
+        let n1 = null;
+        let op = "";
+        let flag = false;
         $(".num").click(function(){
+            if (flag){
+                $("#disp2").val();
+                flag = flase;
+            }
             let cur = $("#disp2").val();
             let n = $(this).val();
-            $("#disp2").val(cur+n)
+            $("#disp2").val(cur+n);
         });
         $(".op").click(function(){
             let cur = $("#disp2").val();
             let n = $(this).val();
+            if ( n != "="){
+                
+            }
         }); 
     });
 </script>
